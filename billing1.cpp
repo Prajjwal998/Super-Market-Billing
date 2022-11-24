@@ -357,6 +357,7 @@ void shopping :: receipt()
 	int arrq[100];
 	char choice;
 	int c=0;
+	int exit=0;
 	float amount=0;
 	float dis=0;
 	float total=0;
@@ -378,7 +379,11 @@ void shopping :: receipt()
 
 		cout<<"\t\t\t\t________________________________________\n\n";
 		cout<<"\t\t\t\t            Place the  Order            \n\n";
+		cout<<"\t\t\t\t             TO Exit press 0            \n\n";
 		cout<<"\t\t\t\t________________________________________\n\n";
+		// cin>>exit;
+		
+		
 		
 		do
 		{
@@ -386,6 +391,8 @@ void shopping :: receipt()
 			cout<<"\t\t\t\t________________________________________\n\n";
 			cout<<"\t\t\t\t     Enter Product Code     : ";
 			cin>>arrc[c];
+			if(arrc[c]==0)
+			buyer();
 			cout<<"\t\t\t\t                                          \n";
 			cout<<"\t\t\t\t     Enter Product Quantity : ";
 			cin>>arrq[c];

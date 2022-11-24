@@ -4,3 +4,4 @@
  104 colgate 60 10
  105 colgate 50 10
  106 tata_salt 70 5
+ 108 soap 40 0
