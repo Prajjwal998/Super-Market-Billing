@@ -84,7 +84,12 @@ void shopping :: menu()
 
 void shopping :: administrator()
 {
+	
 	m:
+	// string s1 = "git pull";
+	char command[] = "git pull"; 
+	system(command);
+	// system("");
 	int choice;
 	cout<<"\t\t\t\t________________________________________\n\n";
 	cout<<"\t\t\t\t           Administrator Menu           \n\n";
@@ -97,6 +102,7 @@ void shopping :: administrator()
 	cout<<"\t\t\t\t     4: Back to Main Menu  \n";
 	cout<<"\t\t\t\t                           \n";
 	cout<<"\n\t\t\t\t     Select : ";
+	
 	cin>>choice;
 	
 	switch(choice)
@@ -112,6 +118,14 @@ void shopping :: administrator()
 		default: cout<<"\n\t\t\t\t       Invalid choice      \n";
 				break;
 	}
+	char command2[] = "git add -A";
+	char command3[] = "git commit -m \"list updated\"";
+	char command4[] = "git push origin master";
+	system(command2);
+	system(command3);
+	system(command4);
+	// system(command);
+	
 	goto m;
 } 
 

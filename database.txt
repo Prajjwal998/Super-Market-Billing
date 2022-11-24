@@ -2,3 +2,6 @@
  103 dal 100 10
  101 rice 100 9
  111 aa 111 11
+ 104 colgate 60 10
+ 105 colgate 50 10
+ 106 tata_salt 70 5
