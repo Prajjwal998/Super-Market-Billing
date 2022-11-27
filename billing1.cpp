@@ -96,6 +96,7 @@ void shopping :: administrator()
 	// string s1 = "git pull";
 	char command[] = "git pull"; 
 	system(command);
+
 	// system("");
 	int choice;
 	cout<<"\t\t\t\t________________________________________\n\n";
