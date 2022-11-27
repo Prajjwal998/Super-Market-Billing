@@ -48,9 +48,7 @@ void shopping :: menu()
 	cout<<"\t\t\t\t                        \n";
 	cout<<"\t\t\t\t     2: Buyer           \n";
 	cout<<"\t\t\t\t                        \n";
-	cout<<"\t\t\t\t     3: Buyer History   \n";
-	cout<<"\t\t\t\t                        \n";
-	cout<<"\t\t\t\t     4: Exit            \n";
+	cout<<"\t\t\t\t     3: Exit            \n";
 	cout<<"\n\t\t\t\t     Select : ";
 	cin>>choice;
 	
@@ -81,10 +79,6 @@ void shopping :: menu()
 			}
 		case 3:
 			{
-				buyerInfo();
-			}
-		case 4:
-			{
 				exit(0);
 			}
 		default:
@@ -112,7 +106,9 @@ void shopping :: administrator()
 	cout<<"\t\t\t\t                           \n";
 	cout<<"\t\t\t\t     3: Delete the Product \n";
 	cout<<"\t\t\t\t                           \n";
-	cout<<"\t\t\t\t     4: Back to Main Menu  \n";
+	cout<<"\t\t\t\t     4: Buyer History   \n";
+	cout<<"\t\t\t\t                           \n";
+	cout<<"\t\t\t\t     5: Back to Main Menu  \n";
 	cout<<"\t\t\t\t                           \n";
 	cout<<"\n\t\t\t\t     Select : ";
 	
@@ -126,7 +122,9 @@ void shopping :: administrator()
 				break;
 		case 3: rem();
 				break;
-		case 4: menu();
+		case 4:buyerInfo();
+				break;
+		case 5: menu();
 				break;
 		default: cout<<"\n\t\t\t\t       Invalid choice      \n";
 				break;
