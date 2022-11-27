@@ -1,7 +1,12 @@
+#include<stdlib.h>
 #include<stdio.h>
 #include<conio.h>
 #include<iostream>
-#include <fstream>
+#include<fstream>
+#include<time.h>
+#include<sstream>  // for string streams
+#include<string>  // for string
+
 using namespace std;
 
 class shopping
@@ -22,6 +27,8 @@ class shopping
 		void rem();
 		void list();
 		void receipt();
+		void buyerInfo();
+		string date_time();
 };
 
 void shopping :: menu()
@@ -41,7 +48,9 @@ void shopping :: menu()
 	cout<<"\t\t\t\t                        \n";
 	cout<<"\t\t\t\t     2: Buyer           \n";
 	cout<<"\t\t\t\t                        \n";
-	cout<<"\t\t\t\t     3: Exit            \n";
+	cout<<"\t\t\t\t     3: Buyer History   \n";
+	cout<<"\t\t\t\t                        \n";
+	cout<<"\t\t\t\t     4: Exit            \n";
 	cout<<"\n\t\t\t\t     Select : ";
 	cin>>choice;
 	
@@ -71,6 +80,10 @@ void shopping :: menu()
 				buyer();
 			}
 		case 3:
+			{
+				buyerInfo();
+			}
+		case 4:
 			{
 				exit(0);
 			}
@@ -132,6 +145,8 @@ void shopping :: administrator()
 void shopping :: buyer()
 {
 	m:
+	char command[] = "git pull"; 
+	system(command);
 	int choice;
 	
 	cout<<"\t\t\t\t________________________________________\n\n";
@@ -169,8 +184,11 @@ void shopping :: add()
 	
 	cout<<"\t\t\t\t________________________________________\n\n";
 	cout<<"\t\t\t\t             Add new Product            \n\n";
+	cout<<"\t\t\t\t             TO Exit Press 0            \n\n";
 	cout<<"\t\t\t\t     Product Code         : ";//5-4
 	cin>>pcode;
+	if(pcode==0)
+		administrator();
 	cout<<"\t\t\t\t     Name of the Product  : ";
 	cin>>pname;
 	cout<<"\t\t\t\t     Price of the Product : ";
@@ -234,9 +252,11 @@ void shopping :: edit()
 	
 	cout<<"\t\t\t\t________________________________________\n\n";
 	cout<<"\t\t\t\t           Modify the Recored           \n\n";
+	cout<<"\t\t\t\t             TO Exit Press 0            \n\n";
 	cout<<"\t\t\t\t     Product Code         : ";//5-4
 	cin>>pkey;
-	
+	if(pkey==0)
+		administrator();
 	data.open("database.txt", ios::in);
 	
 	if(!data)
@@ -291,9 +311,11 @@ void shopping :: rem()
 	
 	cout<<"\t\t\t\t________________________________________\n\n";
 	cout<<"\t\t\t\t             Delete Product             \n\n";
+	cout<<"\t\t\t\t             TO Exit Press 0            \n\n";
 	cout<<"\t\t\t\t        Product Code : ";
 	cin>>pkey;
-	
+	if(pkey==0)
+		administrator();
 	data.open("database.txt", ios::in);
 	
 	if(!data)
@@ -357,14 +379,17 @@ void shopping :: receipt()
 	int arrq[100];
 	char choice;
 	int c=0;
-	int exit=0;
 	float amount=0;
 	float dis=0;
 	float total=0;
 	
+	fstream datab;
+	int c1;
+	int token1=0;
+	string n;
 	
-	cout<<"\t\t\t\t________________________________________\n\n";
-	cout<<"\t\t\t\t               --BUY--              \n\n";
+	int bid;
+	string bname;
 
 	data.open("database.txt",ios::in);
 	if(!data)
@@ -375,15 +400,25 @@ void shopping :: receipt()
 	{
 		data.close();
 		
-		list();
-
 		cout<<"\t\t\t\t________________________________________\n\n";
-		cout<<"\t\t\t\t            Place the  Order            \n\n";
-		cout<<"\t\t\t\t             TO Exit press 0            \n\n";
-		cout<<"\t\t\t\t________________________________________\n\n";
-		// cin>>exit;
+		cout<<"\t\t\t\t             Add Buyer            \n\n";
+		cout<<"\t\t\t\t     Buyer id         : ";//5-4
+		cin>>bid;
+		cout<<"\t\t\t\t     Buyer     Name   : ";
+		cin>>bname;
+		if(bid==-1)
+		{
+			cout<<"\t\t\t you are moving back to previous menu\n";
+			return;
+		}
+	}
 		
-		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	cout<<"\t\t\t\t________________________________________\n\n";
+	cout<<"\t\t\t\t               --BUY--              \n\n";
+	cout<<"\t\t\t\t________________________________________\n\n";
+	cout<<"\t\t\t\t            Place the  Order            \n\n";
+	list();
 		
 		do
 		{
@@ -391,8 +426,6 @@ void shopping :: receipt()
 			cout<<"\t\t\t\t________________________________________\n\n";
 			cout<<"\t\t\t\t     Enter Product Code     : ";
 			cin>>arrc[c];
-			if(arrc[c]==0)
-			buyer();
 			cout<<"\t\t\t\t                                          \n";
 			cout<<"\t\t\t\t     Enter Product Quantity : ";
 			cin>>arrq[c];
@@ -409,18 +442,22 @@ void shopping :: receipt()
 			c++;
 			cout<<"\t\t\t\t    Do you want to buy another product?   \n";
 			cout<<"\t\t\t\t    If yes then press 'y' else No 'n' : ";
-		  	cin>>choice;
+			cin>>choice;
 		}
 		while(choice=='y' || choice=='Y');
 		
 		cout<<"\t\t\t\t________________________________________\n\n";
 		cout<<"\t\t\t\t                 RECEIPT                \n\n";
-		cout<<"\t\t\t\tProNo\tName\tQuality\tPrice\tAmount\tAfter_Discount\n";
+		cout<<"\t\t\t\tBID\tB_Name\n";		
+		datab.open("buyer.txt",ios::in);
+		data>>bid>>bname;
+		cout<<"\t\t\t\t"<<bid<<"\t"<<bname;
+		data.close();
+			
+		cout<<"\n\n\t\t\t\tProNo\tName\tQuality\tPrice\tAmount\tAfter_Discount\n";
 
 		for(int i=0;i<c;i++)
 		{
-			// cout<<"\nc is "<<c<<"\tarrc[i]:"<<arrc[i]<<"\tarrq[i]:"<<arrq[i]<<"\ti:"<<i<<"\n";
-			
 			data.open("database.txt",ios::in);
 			data>>pcode>>pname>>price>>dis;
 			
@@ -435,12 +472,95 @@ void shopping :: receipt()
 				}
 				data>>pcode>>pname>>price>>dis;
 			}
-			
 			data.close();
 		}
-	}
+	
 	cout<<"\n\t\t\t\t________________________________________\n\n";
 	cout<<"\t\t\t\t Total Amount : "<<total<<"\n";
+	
+	datab.open("buyer.txt", ios::in);
+	datab.close();		
+	
+	string td = date_time();
+	datab.open("buyer.txt", ios::app|ios::out);
+	datab<<" "<<bid<<" "<<bname<<" "<<td<<" "<<total<<"\n";
+	datab.close();
+	cout<<"\t\t\t\t           Buyer Record Inserted          \n";
+}
+
+string shopping :: date_time()
+{
+	time_t now = time(0); // get current date and time  
+	tm* ltm = localtime(&now);  
+	
+	int d = ltm->tm_mday;
+	int m = 1 + ltm->tm_mon;
+	int y = 1900 + ltm->tm_year;
+
+	int h = 5 + ltm->tm_hour;
+	int mi = 30 + ltm->tm_min;
+	
+	ostringstream strd;
+	ostringstream strm;
+	ostringstream stry;
+	
+	ostringstream strh;
+	ostringstream strmi;
+
+    // Sending a num//////////////ber as a stream into output
+    // string
+    strd << d;
+    strm << m;
+    stry << y;
+	
+    strh << h;
+    strmi << mi;
+ 
+    // the str() converts number into string
+    string date = strd.str()+"/"+strm.str()+"/"+stry.str()+"-"+strh.str()+":"+strmi.str();
+
+	return date;
+}
+void shopping :: buyerInfo()
+{
+	i:
+	fstream databuyer;
+	int id;
+	int token=0;
+		
+	int bid;
+	string bname;
+	string t;
+	float total;
+	databuyer.open("buyer.txt", ios::in);	
+	cout<<"\t\t\t\t________________________________________\n\n";
+	cout<<"\t\t\t\t		to exit press 0!          \n";
+	cout<<"\t\t\t\t		Enter Buyer ID :   ";
+	cin>>id;
+	if(id==0)
+		menu();
+	
+	cout<<"\n\t\t\t\t________________________________________\n\n";
+	cout<<"\t\t\t\tBid\tBName\ttime\t\t\tprice           \n";
+	cout<<"\t\t\t\t________________________________________\n\n";
+	
+	databuyer>>bid>>bname>>t>>total;
+	while(!databuyer.eof())
+	{
+		if(bid==id)
+		{
+			cout<<"\t\t\t\t"<<bid<<"\t"<<bname<<"\t"<<t<<"\t"<<total<<"\n";
+			token++;	
+		}
+		databuyer>>bid>>bname>>t>>total;
+	}
+	if(token==0)
+	{
+		cout<<"\t\t\t	invalid Buyer ID try another id          \n";
+		goto i;
+	}	
+	databuyer.close();
+	menu();
 }
 
 int main()
