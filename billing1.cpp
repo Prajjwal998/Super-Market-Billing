@@ -94,7 +94,7 @@ void shopping :: administrator()
 	
 	m:
 	// string s1 = "git pull";
-	char command[] = "git pull"; 
+	char command[] = "\t\t\t\t\tgit pull"; 
 	system(command);
 
 	// system("");
@@ -130,6 +130,7 @@ void shopping :: administrator()
 		default: cout<<"\n\t\t\t\t       Invalid choice      \n";
 				break;
 	}
+	cout<<"\t\t\t\t________________________________________\n\n";
 	char command2[] = "git add -A";
 	char command3[] = "git commit -m \"list updated\"";
 	char command4[] = "git push origin master";
