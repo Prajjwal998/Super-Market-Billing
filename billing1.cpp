@@ -298,7 +298,7 @@ void shopping :: edit()
 		
 		if(token==0)
 		{
-			cout<<"\t\t\t\t       Record Not Found Sorry!!!        \n";
+			cout<<"\t\t\t\t         Record Not Found Sorry!!!        \n";
 		}
 	}
 }
@@ -330,7 +330,7 @@ void shopping :: rem()
 		{
 			if(pkey==pcode)
 			{
-				cout<<"\t\t\t\t     Product Delete Succesfully   \n";
+				cout<<"\n\t\t\t\t     Product Delete Succesfully   \n";
 				token++;
 			}
 			else 
@@ -347,7 +347,7 @@ void shopping :: rem()
 		
 		if(token==0)
 		{
-			cout<<"\t\t\t\t     Record Not Found Sorry!!!   \n";
+			cout<<"\n\t\t\t\t     Record Not Found Sorry!!!   \n";
 		}
 	}
 }
