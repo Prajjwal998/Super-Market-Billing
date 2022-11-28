@@ -94,7 +94,7 @@ void shopping :: administrator()
 	
 	m:
 	// string s1 = "git pull";
-	char command[] = "\t\t\t\t\tgit pull"; 
+	char command[] = "git pull"; 
 	system(command);
 
 	// system("");
@@ -236,7 +236,7 @@ void shopping :: add()
 			data.close();
 		}
 	}
-	cout<<"\t\t\t\t     Record Inserted   \n";
+	cout<<"\t\t\t\t        Record Inserted                   \n";
 }
 void shopping :: edit()
 {
