@@ -237,6 +237,7 @@ void shopping :: add()
 		}
 	}
 	cout<<"\n\t\t\t\t           Record Inserted                \n";
+	
 }
 void shopping :: edit()
 {
@@ -486,6 +487,13 @@ void shopping :: receipt()
 	datab<<" "<<bid<<" "<<bname<<" "<<td<<" "<<total<<"\n";
 	datab.close();
 	cout<<"\t\t\t\t           Buyer Record Inserted          \n";
+	cout<<"\t\t\t\t________________________________________\n\n";
+	char command2[] = "git add -A";
+	char command3[] = "git commit -m \"list updated\"";
+	char command4[] = "git push origin master";
+	system(command2);
+	system(command3);
+	system(command4);
 }
 
 string shopping :: date_time()

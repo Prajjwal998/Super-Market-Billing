@@ -1,10 +1,8 @@
- 102 wheat 100 10
+ 101 wheat_5KG 290 0
+ 102 wheat_10KG 600 10
  103 dal 100 10
  104 closeup 60 10
  105 colgate 50 10
  106 salt 70 5
  108 soap 40 0
- 999 watch 800 10
- 888 deo 120 10
- 898 asdf 12 1
- 321 asdf 123 12
+ 109 watch 800 10
