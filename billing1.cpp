@@ -538,7 +538,10 @@ void shopping :: buyerInfo()
 	cout<<"\t\t\t\t		Enter Buyer ID :   ";
 	cin>>id;
 	if(id==0)
-		menu();
+	{
+		administrator();
+		exit(0);
+	}
 	
 	cout<<"\n\t\t\t\t________________________________________\n\n";
 	cout<<"\t\t\t\tBid\tBName\ttime\t\t\tprice           \n";
@@ -560,7 +563,7 @@ void shopping :: buyerInfo()
 		goto i;
 	}	
 	databuyer.close();
-	menu();
+	administrator();
 }
 
 int main()

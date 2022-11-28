@@ -1,6 +1,5 @@
  102 wheat 100 10
  103 dal 100 10
- 101 rice 100 9
  104 closeup 60 10
  105 colgate 50 10
  106 salt 70 5
