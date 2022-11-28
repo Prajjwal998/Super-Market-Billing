@@ -275,13 +275,13 @@ void shopping :: edit()
 				cin>>c;
 				cout<<"\t\t\t\t     Name of the Product  : ";
 				cin>>n;
-				cout<<"\t\t\t\t    Price of the Product : ";
+				cout<<"\t\t\t\t     Price of the Product : ";
 				cin>>p;
 				cout<<"\t\t\t\t     Discount on Product  : ";
 				cin>>d;
 
 				data1<<" "<<c<<" "<<n<<" "<<p<<" "<<d<<"\n";
-				cout<<"\t\t\t\t     Record Edited   \n";
+				cout<<"\n\t\t\t\t           Record Edited                \n";
 				token++;
 			}
 			else 
