@@ -236,7 +236,7 @@ void shopping :: add()
 			data.close();
 		}
 	}
-	cout<<"\t\t\t\t        Record Inserted                   \n";
+	cout<<"\n\t\t\t\t           Record Inserted                \n";
 }
 void shopping :: edit()
 {
