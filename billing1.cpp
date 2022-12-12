@@ -6,7 +6,6 @@
 #include<time.h>
 #include<sstream>  // for string streams
 #include<string>  // for string
-
 using namespace std;
 
 class shopping
@@ -107,7 +106,7 @@ void shopping :: administrator()
 	cout<<"\t\t\t\t                           \n";
 	cout<<"\t\t\t\t     3: Delete the Product \n";
 	cout<<"\t\t\t\t                           \n";
-	cout<<"\t\t\t\t     4: Buyer History   \n";
+	cout<<"\t\t\t\t     4: Buyer History      \n";
 	cout<<"\t\t\t\t                           \n";
 	cout<<"\t\t\t\t     5: Back to Main Menu  \n";
 	cout<<"\t\t\t\t                           \n";
@@ -141,7 +140,6 @@ void shopping :: administrator()
 	
 	goto m;
 } 
-
 void shopping :: buyer()
 {
 	m:
@@ -304,7 +302,7 @@ void shopping :: edit()
 	}
 }
 
-void shopping :: rem()
+void shopping :: rem()//  delete product
 {
 	fstream data, data1;
 	int pkey;
